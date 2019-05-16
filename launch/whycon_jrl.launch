@@ -1,0 +1,19 @@
+<launch>
+<node name="whycon" type="whycon" pkg="whycon">
+    <param name="targets" value="6"/>
+    <!--param name="outer_diameter" value="0.0635"/-->
+    <!--param name="inner_diameter" value="0.02625"/-->
+    <!--param name="outer_diameter" value="0.053"/-->
+    <!--param name="inner_diameter" value="0.02175"/-->
+    <!--param name="outer_diameter" value="0.0475"/-->
+    <!--param name="inner_diameter" value="0.0195"/-->
+    <!--param name="outer_diameter" value="0.0285"/-->
+    <!--param name="inner_diameter" value="0.0115"/-->
+    <param name="outer_diameter" value="0.0315"/>
+    <param name="inner_diameter" value="0.013"/>
+    <param name="max_refine" value="7"/>
+    <param name="max_attempts" value="3"/>
+    <remap from="/camera/image_rect_color" to="/camera/rgb/image_rect_color"/>
+    <remap from="/camera/camera_info" to="/camera/rgb/camera_info"/>
+</node>
+</launch>
