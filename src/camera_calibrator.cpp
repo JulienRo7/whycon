@@ -99,7 +99,7 @@ int main(int argc, char** argv) {
     
     ostringstream ostr;
     ostr << "frames: " << all_corners.size();
-    cv::putText(frame, ostr.str(), cv::Point(5, 15), CV_FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255,0,255), 1.5, CV_AA);
+    cv::putText(frame, ostr.str(), cv::Point(5, 15), cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(255,0,255), 1.5, cv::LINE_AA);
     
     if (!frame.empty()) cv::imshow("input", frame);
   }
