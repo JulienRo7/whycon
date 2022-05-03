@@ -16,7 +16,7 @@ whycon::WhyConROS::WhyConROS(ros::NodeHandle& n) : is_tracking(false), should_re
   if (!n.getParam("targets", targets)) throw std::runtime_error("Private parameter \"targets\" is missing");
 
   n.param("name", frame_id, std::string("whycon"));
-	n.param("world_frame", world_frame_id, std::string("world"));
+  n.param("world_frame", world_frame_id, std::string("world"));
   n.param("max_attempts", max_attempts, 1);
   n.param("max_refine", max_refine, 1);
 
@@ -106,7 +106,7 @@ void whycon::WhyConROS::publish_results(const std_msgs::Header& header, const cv
       circle.draw(output_image, ostr.str(), cv::Vec3b(0,255,255));
 			/*whycon::CircleDetector::Circle new_circle = circle.improveEllipse(cv_ptr->image);
 			new_circle.draw(output_image, ostr.str(), cv::Vec3b(0,255,0));*/
-			cv::circle(output_image, camera_model.project3dToPixel(cv::Point3d(coord)), 1, cv::Scalar(255,0,255), 1, CV_AA);
+			cv::circle(output_image, camera_model.project3dToPixel(cv::Point3d(coord)), 1, cv::Scalar(255,0,255), 1, cv::LINE_AA);
     }
 
     if (publish_poses) {
@@ -175,5 +175,3 @@ void whycon::WhyConROS::load_transforms(void)
 
 	ROS_INFO_STREAM("Loaded transformation from \"" << filename <<  "\"");
 }
-
-
